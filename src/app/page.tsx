@@ -41,7 +41,7 @@ export default function Home() {
                 <span className="text-stone/80">Pasja.</span>
               </h1>
               <p className="animate-fade-up-delay-2 mt-4 max-w-sm text-sm text-stone">
-                Dwie przyjaciółki, partnerki w biznesie. Zero masówki.
+                Połączenie minimalizmu z geometrią. Ręcznie. Zero masówki.
               </p>
             </div>
 
@@ -66,14 +66,16 @@ export default function Home() {
         {/* O nas */}
         <section id="o-nas" className="relative bg-[#F3F1E9] py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <p className="section-label">O nas</p>
-            <h2 className="mt-4 text-3xl text-dark md:text-5xl">
-              Dwie dziewczyny.
-              <span className="text-stone"> Jedna glina.</span>
+            <p className="section-label font-mulish !font-extralight">O nas</p>
+            <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+              Dwie przyjaciółki, partnerki w biznesie.
             </h2>
             <p className="mt-4 max-w-md text-sm text-stone">
-              Robimy głównie płytki ceramiczne — często z geometrycznymi akcentami.
-              Wolno, z sercem, pod Twój dom.
+              Cześć!
+              <br />
+              Cera_mess to Ania i Patrycja, dwie indywidualistki, które po prostu
+              kochają tworzyć i dzielić się tym z innymi. Nasza marka to
+              minimalizm, prostota i przede wszystkim pasja.
             </p>
             <a
               href="#tworzymy"
@@ -90,9 +92,9 @@ export default function Home() {
           <div className="relative mx-auto max-w-7xl px-5 md:px-10">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="section-label">Co tworzymy</p>
-                <h2 className="mt-4 text-3xl text-dark md:text-5xl">
-                  Co lecimy
+                <p className="section-label font-mulish !font-extralight">Nasz vibe</p>
+                <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+                  Co lecimy?
                 </h2>
               </div>
               <p className="text-xs text-stone md:text-right">Trzy linie. Ten sam vibe.</p>

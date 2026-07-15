@@ -31,10 +31,10 @@ export function Header() {
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5 md:h-16 md:px-10">
         <Link href="/" className="shrink-0">
           <Image
-            src="/logo-v2.png"
+            src="/logo-v4.png"
             alt="Ceramess"
-            width={204}
-            height={29}
+            width={179}
+            height={25}
             priority
             className="h-3.5 w-auto md:h-[1.05rem]"
           />

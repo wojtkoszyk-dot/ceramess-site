@@ -9,7 +9,7 @@ export function HeroExperience() {
         width={768}
         height={1024}
         priority
-        className="absolute left-0 top-[-12.5%] h-[125%] w-full object-cover object-center"
+        className="absolute left-0 top-[-12.5%] h-[125%] w-full object-cover object-[38%_center]"
         sizes="100vw"
       />
       <div
