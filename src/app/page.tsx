@@ -34,14 +34,16 @@ export default function Home() {
                 handmade · slow craft
               </p>
               <h1 className="animate-fade-up-delay-1 font-display text-[2.5rem] font-bold text-dark/80 md:text-6xl lg:text-7xl">
-                Manufaktura Kafli.
+                Kafle.
                 <br />
                 Handmade.
                 <br />
-                <span className="text-stone/80">Pasja.</span>
+                <span className="text-stone/80">Ceramika.</span>
               </h1>
               <p className="animate-fade-up-delay-2 mt-4 max-w-sm text-sm text-stone">
-                Połączenie minimalizmu z geometrią. Ręcznie. Zero masówki.
+                Połączenie minimalizmu z geometrią. Ręcznie.
+                <br />
+                Zero masówki.
               </p>
             </div>
 
