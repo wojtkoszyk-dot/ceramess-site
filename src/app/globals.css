@@ -18,11 +18,24 @@
   --color-dark: var(--dark);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
-  --font-sans: var(--font-poppins);
+  --font-sans: var(--font-mulish);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-up,
+  .animate-fade-up-delay-1,
+  .animate-fade-up-delay-2 {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 body {
@@ -30,16 +43,23 @@ body {
   color: var(--dark);
 }
 
-/* Poppins Light — tekst ciągły */
 .font-body {
-  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-family: var(--font-mulish), system-ui, sans-serif;
   font-weight: 300;
   line-height: var(--leading-body);
 }
 
-/* Unbounded — tytuły */
 .font-display {
   font-family: var(--font-unbounded), system-ui, sans-serif;
+  line-height: var(--leading-title);
+  letter-spacing: -0.03em;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-mulish), system-ui, sans-serif;
+  font-weight: 700;
   line-height: var(--leading-title);
   letter-spacing: -0.03em;
 }
@@ -48,13 +68,17 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-family: var(--font-unbounded), system-ui, sans-serif;
   font-size: 0.625rem;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.2em;
   line-height: 1.2;
   text-transform: uppercase;
   color: var(--stone);
+}
+
+.font-mulish {
+  font-family: var(--font-mulish), system-ui, sans-serif;
 }
 
 .section-label::before {
@@ -63,6 +87,22 @@ body {
   height: 2px;
   background-color: var(--accent);
   border-radius: 999px;
+  flex-shrink: 0;
+}
+
+/* Lekka siatka — delikatne tło, nie dominanta */
+.bg-tile-grid {
+  background-image:
+    linear-gradient(rgb(99 86 79 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(99 86 79 / 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-tile-grid-light {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
 .btn-accent {
@@ -109,10 +149,6 @@ body {
   background-color: rgb(255 255 255 / 0.2);
 }
 
-.text-body {
-  line-height: var(--leading-body);
-}
-
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -153,10 +189,182 @@ body {
   background-color: var(--white);
   border: 1px solid rgb(99 86 79 / 0.1);
   border-radius: 1.5rem;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .card-surface {
     border-radius: 2rem;
+  }
+}
+
+/* —— Płytki geometryczne (CSS, bez obrazów) —— */
+.geo-tile {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cream);
+}
+
+.geo-tile--cream {
+  background-color: var(--cream);
+}
+.geo-tile--stone {
+  background-color: var(--stone);
+}
+.geo-tile--dark {
+  background-color: var(--dark);
+}
+
+/* Rzadki niebieski akcent — mały narożnik */
+.geo-tile--accent-dot {
+  background-color: var(--cream);
+}
+.geo-tile--accent-dot::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 32%;
+  height: 32%;
+  background-color: var(--accent);
+}
+
+.geo-tile--diag-stone-cream {
+  background: linear-gradient(135deg, var(--stone) 50%, var(--cream) 50%);
+}
+.geo-tile--diag-cream-stone {
+  background: linear-gradient(135deg, var(--cream) 50%, var(--stone) 50%);
+}
+.geo-tile--diag-dark-stone {
+  background: linear-gradient(135deg, var(--dark) 50%, var(--stone) 50%);
+}
+
+.geo-tile--semi-tr {
+  background-color: var(--stone);
+}
+.geo-tile--semi-tr::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 72%;
+  height: 72%;
+  background: var(--white);
+  border-radius: 0 0 0 100%;
+}
+
+.geo-tile--semi-bl {
+  background-color: var(--stone);
+}
+.geo-tile--semi-bl::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 70%;
+  height: 70%;
+  background: var(--cream);
+  border-radius: 0 100% 0 0;
+}
+
+.geo-tile--semi-tl {
+  background-color: var(--dark);
+}
+.geo-tile--semi-tl::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 68%;
+  height: 68%;
+  background: var(--cream);
+  border-radius: 0 0 100% 0;
+}
+
+.geo-tile--triangle-tr {
+  background-color: var(--stone);
+}
+.geo-tile--triangle-tr::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.geo-tile--triangle-bl {
+  background-color: var(--stone);
+}
+.geo-tile--triangle-bl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  clip-path: polygon(0 100%, 100% 100%, 0 0);
+}
+
+.geo-tile--circle-soft {
+  background-color: var(--cream);
+}
+.geo-tile--circle-soft::before {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border: 2px solid rgb(30 30 30 / 0.35);
+  border-radius: 50%;
+}
+.geo-tile--circle-soft::after {
+  content: "";
+  position: absolute;
+  inset: 32%;
+  border: 1px solid var(--stone);
+  border-radius: 50%;
+}
+
+.geo-tile--circle-ring {
+  background-color: var(--stone);
+}
+.geo-tile--circle-ring::after {
+  content: "";
+  position: absolute;
+  inset: 22%;
+  border: 3px solid var(--cream);
+  border-radius: 50%;
+}
+
+.geo-tile--stripes {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--stone) 0,
+    var(--stone) 4px,
+    #564a44 4px,
+    #564a44 8px
+  );
+}
+
+.geo-tile--half-moon {
+  background-color: var(--cream);
+  background-image: radial-gradient(circle at 0% 50%, var(--dark) 36%, transparent 37%),
+    radial-gradient(circle at 100% 50%, var(--stone) 36%, transparent 37%);
+}
+
+.geo-tile--cross {
+  background-color: var(--cream);
+  background-image: linear-gradient(var(--stone) 2px, transparent 2px),
+    linear-gradient(90deg, var(--stone) 2px, transparent 2px);
+  background-size: 28% 28%;
+  background-position: center;
+}
+
+/* Płynne łączenie sekcji */
+.section-flow-top {
+  margin-top: -4rem;
+  padding-top: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-flow-top {
+    margin-top: -6rem;
+    padding-top: 6rem;
   }
 }

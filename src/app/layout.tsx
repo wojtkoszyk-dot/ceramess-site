@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Poppins, Unbounded } from "next/font/google";
+import { Mulish, Unbounded } from "next/font/google";
 import "./globals.css";
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
   subsets: ["latin", "latin-ext"],
-  weight: ["500", "600"],
+  weight: ["200", "500", "600", "700"],
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const mulish = Mulish({
+  variable: "--font-mulish",
   subsets: ["latin", "latin-ext"],
-  weight: ["300"],
+  weight: ["200", "300", "700"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className={`${unbounded.variable} ${poppins.variable}`}>
+    <html lang="pl" className={`${unbounded.variable} ${mulish.variable}`}>
       <body className="font-body antialiased">{children}</body>
     </html>
   );
