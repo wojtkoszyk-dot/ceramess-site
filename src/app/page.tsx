@@ -3,6 +3,8 @@ import { Header } from "@/components/Header";
 import { HeroExperience } from "@/components/HeroExperience";
 import { ScrollMosaic } from "@/components/ScrollMosaic";
 import { GALLERY_MOSAIC, type TilePattern } from "@/lib/tile-patterns";
+import Image from "next/image";
+import Link from "next/link";
 
 const creations: { title: string; desc: string; pattern: TilePattern }[] = [
   { title: "Płytki", desc: "Głównie to. Malowane ręcznie.", pattern: "circle-soft" },
@@ -31,7 +33,7 @@ export default function Home() {
           <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-10 pt-20 md:px-10 md:pb-14">
             <div className="max-w-2xl">
               <p className="section-label font-mulish animate-fade-up mb-4 !font-extralight">
-                handmade · slow craft
+                Made slowly · design to last
               </p>
               <h1 className="animate-fade-up-delay-1 font-display text-[2.5rem] font-bold text-dark/80 md:text-6xl lg:text-7xl">
                 Kafle.
@@ -220,7 +222,15 @@ export default function Home() {
 
       <footer className="border-t border-stone/15 bg-white py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 text-center md:flex-row md:px-10 md:text-left">
-          <span className="font-display text-base font-medium text-dark">Ceramess</span>
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/logo-v4.png"
+              alt="Ceramess"
+              width={179}
+              height={25}
+              className="h-3.5 w-auto md:h-[1.05rem]"
+            />
+          </Link>
           <p className="text-xs text-stone">© {new Date().getFullYear()} · made slow</p>
         </div>
       </footer>
