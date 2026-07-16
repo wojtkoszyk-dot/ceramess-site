@@ -1,17 +1,47 @@
 import { Header } from "@/components/Header";
 import { HeroExperience } from "@/components/HeroExperience";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
-import { ScrollMosaic } from "@/components/ScrollMosaic";
-import { GALLERY_MOSAIC } from "@/lib/tile-patterns";
 import Image from "next/image";
 import Link from "next/link";
 
 const steps = [
-  { num: "01", title: "Szkic" },
-  { num: "02", title: "Forma" },
-  { num: "03", title: "Szkliwo" },
-  { num: "04", title: "Wypał" },
-  { num: "05", title: "Finisz" },
+  {
+    num: "01",
+    title: "Szkic",
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="mx-auto h-14 w-14 text-dark">
+        <path d="M12 48 L28 16 L36 28 L52 12" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="28" cy="16" r="2" fill="currentColor" />
+        <circle cx="36" cy="28" r="2" fill="currentColor" />
+        <path d="M14 52 H50" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+  },
+  {
+    num: "02",
+    title: "Forma",
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="mx-auto h-14 w-14 text-dark">
+        <rect x="14" y="14" width="36" height="36" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="32" cy="32" r="10" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+  },
+  {
+    num: "03",
+    title: "Grafika",
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="mx-auto h-14 w-14 text-dark">
+        <path
+          d="M10 46 V28 L16 22 V46 Z M22 46 V20 L32 12 L42 20 V46 Z M48 46 V26 L54 32 V46 Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path d="M8 46 H56" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+  },
 ];
 
 export default function Home() {
@@ -79,7 +109,7 @@ export default function Home() {
               href="#tworzymy"
               className="font-display mt-5 inline-flex items-center gap-1.5 text-xs text-accent transition-colors hover:text-[#3f5f9e]"
             >
-              Co robimy →
+              Co lecimy →
             </a>
           </div>
         </section>
@@ -138,37 +168,27 @@ export default function Home() {
         <section id="proces" className="relative bg-white py-16 md:py-24">
           <div className="absolute inset-0 bg-tile-grid opacity-25" aria-hidden />
           <div className="relative mx-auto max-w-7xl px-5 md:px-10">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
-              <div>
-                <p className="section-label">Proces</p>
-                <h2 className="mt-4 text-3xl text-dark md:text-5xl">
-                  Jak to powstaje
-                </h2>
-                <p className="mt-3 text-xs text-stone">5 kroków. Zero pośpiechu.</p>
+            <p className="section-label font-mulish !font-extralight">Proces</p>
+            <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+              Jak to powstaje
+            </h2>
+            <p className="font-mulish mt-3 text-sm font-light text-stone">
+              3 kroki. Zero pośpiechu.
+            </p>
 
-                <ol className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-2">
-                  {steps.map((step) => (
-                    <li
-                      key={step.num}
-                      className="rounded-2xl border border-stone/10 bg-cream px-4 py-3 transition-colors hover:border-accent/30"
-                    >
-                      <span className="font-display text-xs text-accent">{step.num}</span>
-                      <p className="font-display mt-1 text-sm font-medium text-dark">
-                        {step.title}
-                      </p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-
-              <div className="card-surface relative min-h-[300px] overflow-hidden p-3 md:min-h-[400px]">
-                <ScrollMosaic
-                  patterns={GALLERY_MOSAIC.slice(0, 16)}
-                  cols={4}
-                  intensity="gallery"
-                />
-              </div>
-            </div>
+            <ol className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3">
+              {steps.map((step) => (
+                <li key={step.num} className="text-center">
+                  <div>{step.icon}</div>
+                  <span className="font-display mt-1 block text-3xl font-bold text-accent md:text-4xl">
+                    {step.num}
+                  </span>
+                  <p className="font-mulish mt-1 text-sm font-light text-stone">
+                    {step.title}
+                  </p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -176,22 +196,16 @@ export default function Home() {
         <section id="kontakt" className="bg-cream pb-16 pt-4 md:pb-24">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <div className="relative overflow-hidden rounded-[1.5rem] bg-dark md:rounded-[2rem]">
-              <div className="absolute inset-0 opacity-40">
-                <ScrollMosaic
-                  patterns={GALLERY_MOSAIC.slice(0, 12)}
-                  cols={6}
-                  intensity="subtle"
-                />
-              </div>
-              <div className="absolute inset-0 bg-dark/75" />
               <div className="relative px-6 py-12 text-center md:px-14 md:py-16">
-                <p className="section-label justify-center text-stone [&::before]:bg-accent">
+                <p className="section-label font-mulish justify-center !font-extralight text-[#F3F1E9]/70 [&::before]:bg-[#F3F1E9]/70">
                   Kontakt
                 </p>
-                <h2 className="mt-4 text-3xl text-white md:text-5xl">
+                <h2 className="font-display mt-4 text-3xl font-bold text-white md:text-5xl">
                   Masz pomysł?
                 </h2>
-                <p className="mt-3 text-sm text-stone">Pisz. Custom mile widziany.</p>
+                <p className="font-mulish mt-3 text-sm font-light text-[#F3F1E9]/70">
+                  Pisz. Znajdziemy coś dla Ciebie albo zaprojektujemy to razem.
+                </p>
 
                 <div className="mt-8 flex flex-col items-center justify-center gap-2.5 sm:flex-row">
                   <a href="mailto:hello@ceramess.pl" className="btn-accent min-w-[200px]">
