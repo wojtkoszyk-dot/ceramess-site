@@ -1,16 +1,10 @@
-import { GeometricTile } from "@/components/GeometricTile";
 import { Header } from "@/components/Header";
 import { HeroExperience } from "@/components/HeroExperience";
+import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { ScrollMosaic } from "@/components/ScrollMosaic";
-import { GALLERY_MOSAIC, type TilePattern } from "@/lib/tile-patterns";
+import { GALLERY_MOSAIC } from "@/lib/tile-patterns";
 import Image from "next/image";
 import Link from "next/link";
-
-const creations: { title: string; desc: string; pattern: TilePattern }[] = [
-  { title: "Płytki", desc: "Głównie to. Malowane ręcznie.", pattern: "circle-soft" },
-  { title: "Geometria", desc: "Linie, łuki, rytm.", pattern: "semi-tr" },
-  { title: "Custom", desc: "Twój vibe. Nasze ręce.", pattern: "diag-dark-stone" },
-];
 
 const steps = [
   { num: "01", title: "Szkic" },
@@ -91,53 +85,51 @@ export default function Home() {
         </section>
 
         {/* Co tworzymy */}
-        <section id="tworzymy" className="relative bg-white py-16 md:py-24">
-          <div className="absolute inset-0 bg-tile-grid opacity-40" aria-hidden />
-          <div className="relative mx-auto max-w-7xl px-5 md:px-10">
-            <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="section-label font-mulish !font-extralight">Nasz vibe</p>
-                <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
-                  Co lecimy?
-                </h2>
-              </div>
-              <p className="text-xs text-stone md:text-right">Trzy linie. Ten sam vibe.</p>
+        <section id="tworzymy" className="relative bg-[#F3F1E9] pt-16 md:pt-24">
+          <div className="mx-auto max-w-7xl px-5 pb-16 md:px-10 md:pb-24">
+            <div>
+              <p className="section-label font-mulish !font-extralight">Nasz vibe</p>
+              <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+                Co lecimy?
+              </h2>
+              <p className="mt-4 max-w-2xl text-sm text-stone">
+                Kafle. Od początku do końca. Od pomysłu po gotową, zapakowaną
+                płytkę dla Was! Nasze Kafle to nie tylko ściana w łazience czy
+                kuchni, to sztuka, sztuka, która może Cię codziennie otaczać. To
+                produkt premium, indywidualny, niepowtarzalny, ale też elastyczny.
+                Skala projektu jest dowolna, może to być niewielki obraz, a może
+                to być wielkoformatowy projekt pod konkretną przestrzeń.
+              </p>
             </div>
-
-            <ul className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5">
-              {creations.map((item) => (
-                <li key={item.title} className="hover-lift card-surface group">
-                  <div className="relative aspect-square p-2">
-                    <GeometricTile
-                      pattern={item.pattern}
-                      className="h-full w-full transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="border-t border-stone/10 p-5">
-                    <h3 className="text-lg text-dark">{item.title}</h3>
-                    <p className="mt-1.5 text-xs text-stone">{item.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </div>
+          <Image
+            src="/section-houses.png"
+            alt=""
+            width={514}
+            height={32}
+            className="w-full"
+            aria-hidden
+          />
         </section>
 
-        {/* Galeria — scroll rearrange */}
+        {/* Kafle — karuzela zdjęć */}
         <section id="galeria" className="relative bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="section-label">Galeria</p>
-                <h2 className="mt-4 text-3xl text-dark md:text-5xl">
-                  Wzory w ruchu
+                <p className="section-label font-mulish !font-extralight">Kafle</p>
+                <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+                  Manufaktura
                 </h2>
               </div>
-              <p className="text-xs text-stone">Przewiń — układanie z lewej</p>
+              <p className="font-mulish mt-2 max-w-xs text-sm font-light text-stone md:mt-0 md:text-right">
+                Każda płytka jest zaprojektowana i wykonana ze starannością,
+                ręcznie, bez ściemy.
+              </p>
             </div>
 
-            <div className="mt-10 overflow-hidden rounded-[1.5rem] border border-stone/10 bg-white p-3 md:rounded-[2rem] md:p-4">
-              <ScrollMosaic patterns={GALLERY_MOSAIC} cols={4} intensity="gallery" />
+            <div className="mt-10">
+              <PhotoCarousel />
             </div>
           </div>
         </section>
