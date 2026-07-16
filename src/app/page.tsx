@@ -9,37 +9,42 @@ const steps = [
     num: "01",
     title: "Szkic",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="mx-auto h-14 w-14 text-dark">
-        <path d="M12 48 L28 16 L36 28 L52 12" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="28" cy="16" r="2" fill="currentColor" />
-        <circle cx="36" cy="28" r="2" fill="currentColor" />
-        <path d="M14 52 H50" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
+      <Image
+        src="/icon-szkic-v2.png"
+        alt=""
+        width={36}
+        height={36}
+        className="mx-auto h-9 w-9"
+        aria-hidden
+      />
     ),
   },
   {
     num: "02",
     title: "Forma",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="mx-auto h-14 w-14 text-dark">
-        <rect x="14" y="14" width="36" height="36" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="32" cy="32" r="10" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
+      <Image
+        src="/icon-forma-v2.png"
+        alt=""
+        width={36}
+        height={36}
+        className="mx-auto h-9 w-9"
+        aria-hidden
+      />
     ),
   },
   {
     num: "03",
     title: "Grafika",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className="mx-auto h-14 w-14 text-dark">
-        <path
-          d="M10 46 V28 L16 22 V46 Z M22 46 V20 L32 12 L42 20 V46 Z M48 46 V26 L54 32 V46 Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-        <path d="M8 46 H56" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
+      <Image
+        src="/icon-grafika-v2.png"
+        alt=""
+        width={36}
+        height={36}
+        className="mx-auto h-9 w-9"
+        aria-hidden
+      />
     ),
   },
 ];
@@ -133,10 +138,10 @@ export default function Home() {
             </div>
           </div>
           <Image
-            src="/section-houses.png"
+            src="/section-houses-v2.png"
             alt=""
-            width={514}
-            height={32}
+            width={1024}
+            height={63}
             className="w-full"
             aria-hidden
           />
@@ -230,7 +235,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 text-center md:flex-row md:px-10 md:text-left">
           <Link href="/" className="shrink-0">
             <Image
-              src="/logo-v4.png"
+              src="/logo-footer.png"
               alt="Ceramess"
               width={179}
               height={25}
