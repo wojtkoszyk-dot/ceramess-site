@@ -7,42 +7,45 @@ import Link from "next/link";
 const steps = [
   {
     num: "01",
-    title: "Szkic",
+    keyword: "Szkic",
+    desc: "Przeniesienie pomysłu na papier",
     icon: (
       <Image
         src="/icon-szkic-v2.png"
         alt=""
-        width={36}
-        height={36}
-        className="mx-auto h-9 w-9"
+        width={72}
+        height={72}
+        className="mx-auto h-[4.5rem] w-[4.5rem]"
         aria-hidden
       />
     ),
   },
   {
     num: "02",
-    title: "Forma",
+    keyword: "Forma",
+    desc: "Zabawa gliną, stworzenie naszego kafelka",
     icon: (
       <Image
         src="/icon-forma-v2.png"
         alt=""
-        width={36}
-        height={36}
-        className="mx-auto h-9 w-9"
+        width={72}
+        height={72}
+        className="mx-auto h-[4.5rem] w-[4.5rem]"
         aria-hidden
       />
     ),
   },
   {
     num: "03",
-    title: "Grafika",
+    keyword: "Grafika",
+    desc: "Naniesienie projektu graficznego na płytkę",
     icon: (
       <Image
         src="/icon-grafika-v2.png"
         alt=""
-        width={36}
-        height={36}
-        className="mx-auto h-9 w-9"
+        width={72}
+        height={72}
+        className="mx-auto h-[4.5rem] w-[4.5rem]"
         aria-hidden
       />
     ),
@@ -175,21 +178,25 @@ export default function Home() {
           <div className="relative mx-auto max-w-7xl px-5 md:px-10">
             <p className="section-label font-mulish !font-extralight">Proces</p>
             <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
-              Jak to powstaje
+              Kafle od kuchni
             </h2>
-            <p className="font-mulish mt-3 text-sm font-light text-stone">
-              3 kroki. Zero pośpiechu.
+            <p className="font-mulish mt-3 max-w-2xl text-sm font-light text-stone">
+              Zobacz, jak pracujemy. W dużym uproszczeniu proces składa się z
+              trzech głównych kroków:
             </p>
 
             <ol className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3">
               {steps.map((step) => (
                 <li key={step.num} className="text-center">
                   <div>{step.icon}</div>
-                  <span className="font-display mt-1 block text-3xl font-bold text-accent md:text-4xl">
+                  <span className="font-display mt-1 block text-6xl font-bold leading-none text-accent md:text-7xl">
                     {step.num}
                   </span>
-                  <p className="font-mulish mt-1 text-sm font-light text-stone">
-                    {step.title}
+                  <p className="font-display -mt-1 text-[1.3rem] font-bold leading-none text-accent md:text-[1.575rem]">
+                    {step.keyword}
+                  </p>
+                  <p className="font-mulish mx-auto mt-2 max-w-[50%] text-sm font-light text-stone">
+                    {step.desc}
                   </p>
                 </li>
               ))}
@@ -202,7 +209,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <div className="relative overflow-hidden rounded-[1.5rem] bg-dark md:rounded-[2rem]">
               <div className="relative px-6 py-12 text-center md:px-14 md:py-16">
-                <p className="section-label font-mulish justify-center !font-extralight text-[#F3F1E9]/70 [&::before]:bg-[#F3F1E9]/70">
+                <p className="section-label font-mulish justify-center !font-extralight !text-[#F3F1E9]/70 [&::before]:!bg-accent">
                   Kontakt
                 </p>
                 <h2 className="font-display mt-4 text-3xl font-bold text-white md:text-5xl">
