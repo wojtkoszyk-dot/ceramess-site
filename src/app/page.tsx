@@ -45,10 +45,6 @@ export default function Home() {
                 Napisz
               </a>
             </div>
-
-            <p className="mt-10 hidden text-[0.625rem] uppercase tracking-widest text-stone/55 md:block">
-              przewiń w dół
-            </p>
           </div>
         </section>
 
@@ -79,7 +75,7 @@ export default function Home() {
         <section id="tworzymy" className="relative bg-[#F3F1E9] pt-16 md:pt-24">
           <div className="mx-auto max-w-7xl px-5 pb-16 md:px-10 md:pb-24">
             <div>
-              <p className="section-label font-mulish !font-extralight">Nasz vibe</p>
+              <p className="section-label font-mulish !font-extralight">Oferta</p>
               <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
                 Co lecimy?
               </h2>
@@ -94,7 +90,7 @@ export default function Home() {
             </div>
           </div>
           <Image
-            src="/section-houses-v2.png"
+            src="/section-houses-v3.png"
             alt=""
             width={1024}
             height={63}
@@ -104,16 +100,14 @@ export default function Home() {
         </section>
 
         {/* Kafle — karuzela zdjęć */}
-        <section id="galeria" className="relative bg-cream py-16 md:py-24">
+        <section id="galeria" className="relative bg-white py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="section-label font-mulish !font-extralight">Kafle</p>
-                <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
-                  Manufaktura
-                </h2>
-              </div>
-              <p className="font-mulish mt-2 max-w-xs text-sm font-light text-stone md:mt-0 md:text-right">
+            <div>
+              <p className="section-label font-mulish !font-extralight">Kafle</p>
+              <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+                Manufaktura
+              </h2>
+              <p className="font-mulish mt-3 max-w-2xl text-sm font-light text-stone">
                 Każda płytka jest zaprojektowana i wykonana ze starannością,
                 ręcznie, bez ściemy.
               </p>
