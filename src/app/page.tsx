@@ -94,7 +94,7 @@ export default function Home() {
             alt=""
             width={1024}
             height={63}
-            className="w-full"
+            className="mx-auto h-auto w-full max-w-[1024px]"
             aria-hidden
           />
         </section>

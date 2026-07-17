@@ -60,6 +60,46 @@ const photos = [
     src: "/slide-13.png",
     alt: "Kafel — siatka z punktami",
   },
+  {
+    src: "/slide-15.png",
+    alt: "Kafel — perspektywa geometryczna",
+  },
+  {
+    src: "/slide-16.png",
+    alt: "Kafel — fasady z oknami",
+  },
+  {
+    src: "/slide-17.png",
+    alt: "Kafel — linie pionowe",
+  },
+  {
+    src: "/slide-18.png",
+    alt: "Kafel — okno w fasadzie",
+  },
+  {
+    src: "/slide-19.png",
+    alt: "Kafel — dach i żaluzje",
+  },
+  {
+    src: "/slide-20.png",
+    alt: "Kafel — obrys domu",
+  },
+  {
+    src: "/slide-21.png",
+    alt: "Kafel — dom w paskach",
+  },
+  {
+    src: "/slide-22.png",
+    alt: "Kafel — bloki z oknami",
+  },
+  {
+    src: "/slide-23.png",
+    alt: "Kafel — dom w kreskach",
+  },
+  {
+    src: "/slide-24.png",
+    alt: "Kafel — sylwetka na dwukolorze",
+  },
 ];
 
 const GAP = 24;
@@ -89,8 +129,6 @@ export function PhotoCarousel() {
   const [index, setIndex] = useState(N);
   const [animate, setAnimate] = useState(true);
   const jumping = useRef(false);
-
-  const realIndex = ((index % N) + N) % N;
 
   const normalize = useCallback((i: number) => {
     if (i < N) return i + N;
@@ -197,23 +235,6 @@ export function PhotoCarousel() {
       >
         →
       </button>
-
-      <div className="mt-2 flex justify-center gap-2">
-        {photos.map((photo, i) => (
-          <button
-            key={photo.src}
-            type="button"
-            aria-label={`Zdjęcie ${i + 1}`}
-            aria-current={i === realIndex}
-            onClick={() => goTo(N + i)}
-            className={`h-1.5 w-1.5 rounded-full transition-all duration-300 ${
-              i === realIndex
-                ? "scale-150 bg-dark"
-                : "bg-dark/30 hover:bg-dark/50"
-            }`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
