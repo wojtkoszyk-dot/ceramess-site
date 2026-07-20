@@ -76,7 +76,7 @@ export const pl: Dictionary = {
   },
   process: {
     label: "Proces",
-    title: "Behind the Tile",
+    title: "Jak powstaje Twój Kafel",
     body: "Zobacz, jak pracujemy. Od pomysłu do gotowego kafla. Każdy etap ma znaczenie.",
     steps: [
       {

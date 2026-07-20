@@ -37,7 +37,7 @@ export function Header({ locale, nav }: HeaderProps) {
       }`}
     >
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5 md:h-16 md:px-10">
-        <Link href="/" className="shrink-0">
+        <Link href="/#hero" className="shrink-0">
           <Image
             src="/logo-v4.png"
             alt="Ceramess"

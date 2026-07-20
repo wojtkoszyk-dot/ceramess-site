@@ -189,7 +189,7 @@ export default async function Home() {
       </main>
 
       <footer className="border-t border-stone/15 bg-white py-8">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-5 md:flex-row md:gap-3 md:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-1.5 px-5 md:px-10">
           <Link href="/" className="flex shrink-0 items-center">
             <Image
               src="/logo-footer.png"
