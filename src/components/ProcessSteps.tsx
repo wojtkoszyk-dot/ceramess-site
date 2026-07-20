@@ -6,17 +6,17 @@ const steps = [
   {
     num: "01",
     keyword: "Szkic",
-    desc: "Przeniesienie pomysłu na papier",
+    desc: "Design na podstawie Naszej wyjściowej geometrii",
   },
   {
     num: "02",
     keyword: "Forma",
-    desc: "Zabawa gliną, stworzenie Waszego kafelka",
+    desc: "Glina. Kształt. Wypał. Szkliwo. Wszystko robione ręcznie.",
   },
   {
     num: "03",
-    keyword: "Grafika",
-    desc: "Naniesienie projektu graficznego na płytkę",
+    keyword: "Pattern",
+    desc: "Wzór przenosimy na kafle ręcznie. Dzięki temu każdy egzemplarz jest unikalny i ma własny charakter.",
   },
 ];
 
@@ -45,7 +45,7 @@ export function ProcessSteps() {
   return (
     <ol
       ref={ref}
-      className={`process-path mt-12 flex w-full max-w-[30.8rem] flex-col pb-20 sm:max-w-none sm:flex-row sm:items-start sm:pb-24 ${
+      className={`process-path mt-12 flex w-full max-w-[30.8rem] flex-col pb-20 sm:max-w-none sm:flex-row sm:items-start sm:pb-0 ${
         active ? "is-active" : ""
       }`}
     >
@@ -72,7 +72,7 @@ export function ProcessSteps() {
             </div>
 
             {/* Mobile — text to the right of the dot */}
-            <div className="absolute left-[calc(100%+1rem)] top-1/2 -translate-y-1/2 text-left sm:hidden">
+            <div className="absolute left-[calc(100%+1rem)] top-1/2 w-[min(20rem,calc(100vw-5rem))] -translate-y-1/2 text-left sm:hidden">
               <span className="font-display block text-3xl font-bold leading-none text-accent">
                 {step.num}
               </span>
@@ -80,7 +80,7 @@ export function ProcessSteps() {
                 <p className="font-display text-[0.845rem] font-bold leading-none text-dark">
                   {step.keyword}
                 </p>
-                <p className="font-mulish mt-2 whitespace-nowrap text-sm font-light leading-snug text-stone">
+                <p className="font-mulish mt-2 text-sm font-light leading-snug text-stone">
                   {step.desc}
                 </p>
               </div>
@@ -94,7 +94,7 @@ export function ProcessSteps() {
               <p className="font-display mt-0.5 text-[0.845rem] font-bold leading-none text-dark md:text-[1.024rem]">
                 {step.keyword}
               </p>
-              <p className="font-mulish mx-auto mt-2 max-w-[14rem] text-sm font-light leading-snug text-stone">
+              <p className="font-mulish mx-auto mt-2 max-w-[16rem] text-sm font-light leading-snug text-stone">
                 {step.desc}
               </p>
             </div>

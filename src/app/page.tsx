@@ -72,7 +72,7 @@ export default function Home() {
         </section>
 
         {/* Co tworzymy */}
-        <section id="tworzymy" className="relative bg-[#F3F1E9] pt-16 md:pt-24">
+        <section id="tworzymy" className="relative bg-white pt-16 md:pt-24">
           <div className="mx-auto max-w-7xl px-5 pb-16 md:px-10 md:pb-24">
             <div>
               <p className="section-label font-mulish !font-extralight">Oferta</p>
@@ -84,19 +84,37 @@ export default function Home() {
                 płytkę dla Was! Nasze Kafle to nie tylko ściana w łazience czy
                 kuchni, to sztuka, sztuka, która może Cię codziennie otaczać. To
                 produkt premium, indywidualny, niepowtarzalny, ale też elastyczny.
-                Skala projektu jest dowolna, może to być niewielki obraz, a może
-                to być wielkoformatowy projekt pod konkretną przestrzeń.
+                Każdy projekt jest tworzony indywidualnie. Mały format,
+                wielkoformatowa instalacja, jeden akcent albo cała ściana. Skala
+                zależy od Ciebie.
+              </p>
+
+              <p className="font-mulish mt-10 text-sm font-light text-stone">
+                Nasze geometria:
+              </p>
+              <div className="mt-6 flex justify-center gap-0.5" aria-hidden>
+                {[1, 3, 2, 4, 5].map((n) => (
+                  <div
+                    key={n}
+                    className="relative h-[50px] w-[50px] shrink-0 overflow-hidden"
+                  >
+                    <Image
+                      src={`/geometry-${n}.png`}
+                      alt=""
+                      fill
+                      sizes="50px"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+              <p className="font-mulish mt-6 max-w-2xl text-sm font-light text-stone">
+                To punkt wyjścia. Wizualny język, z którego budujemy wzory.
+                Detal spotyka minimalizm, a całość pozostaje prosta,
+                ponadczasowa i premium.
               </p>
             </div>
           </div>
-          <Image
-            src="/section-houses-v3.png"
-            alt=""
-            width={1024}
-            height={63}
-            className="mx-auto h-auto w-full max-w-[1024px]"
-            aria-hidden
-          />
         </section>
 
         {/* Kafle — karuzela zdjęć */}
@@ -108,8 +126,8 @@ export default function Home() {
                 Manufaktura
               </h2>
               <p className="font-mulish mt-3 max-w-2xl text-sm font-light text-stone">
-                Każda płytka jest zaprojektowana i wykonana ze starannością,
-                ręcznie, bez ściemy.
+                Kafle powstają z uważnością. Dzięki temu każdy egzemplarz
+                ma swój charakter. Mniej produkcji. Więcej rzemiosła.
               </p>
             </div>
 
@@ -122,17 +140,22 @@ export default function Home() {
         {/* Proces */}
         <section id="proces" className="relative bg-white py-16 md:py-24">
           <div className="absolute inset-0 bg-tile-grid opacity-25" aria-hidden />
-          <div className="relative mx-auto max-w-7xl px-5 md:px-10">
+          <div className="relative mx-auto flex max-w-7xl flex-col px-5 md:px-10">
             <p className="section-label font-mulish !font-extralight">Proces</p>
             <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
-              Jak powstaje Twój Kafelek
+              Behind the Tile
             </h2>
             <p className="font-mulish mt-3 max-w-2xl text-sm font-light text-stone">
-              Zobacz, jak pracujemy. W dużym uproszczeniu proces składa się z
-              trzech głównych kroków:
+              Zobacz, jak pracujemy. Od pomysłu do gotowego kafla. Każdy etap
+              ma znaczenie.
             </p>
 
             <ProcessSteps />
+
+            <p className="font-mulish mt-auto max-w-2xl pt-16 text-xs font-light leading-relaxed text-stone md:pt-24">
+              *w procesie kroki 02 i 03 przenikają się, w zależności od funkcji
+              jaką będą pełnić kafle dobieramy materiały
+            </p>
           </div>
         </section>
 
