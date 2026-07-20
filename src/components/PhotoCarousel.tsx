@@ -7,6 +7,9 @@ const photoSources = [
   "/slide-1.png",
   "/slide-2.png",
   "/slide-3.png",
+  "/slide-4.png",
+  "/slide-5.png",
+  "/slide-6.png",
 ];
 
 type PhotoCarouselProps = {
