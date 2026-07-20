@@ -70,6 +70,7 @@ export const en: Dictionary = {
       "Tile — blocks with windows",
       "Tile — house in lines",
       "Tile — two-tone silhouette",
+      "Tile — blue house tile",
     ],
     prev: "Previous photo",
     next: "Next photo",

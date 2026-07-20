@@ -70,6 +70,7 @@ export const pl: Dictionary = {
       "Kafel — bloki z oknami",
       "Kafel — dom w kreskach",
       "Kafel — sylwetka na dwukolorze",
+      "Kafel — kafel z niebieskimi domkami",
     ],
     prev: "Poprzednie zdjęcie",
     next: "Następne zdjęcie",

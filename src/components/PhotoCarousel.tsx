@@ -28,6 +28,7 @@ const photoSources = [
   "/slide-22.png",
   "/slide-23.png",
   "/slide-24.png",
+  "/slide-25.png",
 ];
 
 type PhotoCarouselProps = {
@@ -151,15 +152,17 @@ export function PhotoCarousel({
                 }`}
                 style={{ width: slide }}
               >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={512}
-                  height={512}
-                  className="h-auto w-full"
-                  sizes={`${Math.round(slide)}px`}
-                  priority={i >= N && i < N + 3}
-                />
+                <div className="rounded-[6px] bg-white p-3 shadow-[inset_0_0_0_0.33px_#1e1e1e]">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={512}
+                    height={512}
+                    className="h-auto w-full rounded-[4px]"
+                    sizes={`${Math.round(slide)}px`}
+                    priority={i >= N && i < N + 3}
+                  />
+                </div>
               </button>
             );
           })}
