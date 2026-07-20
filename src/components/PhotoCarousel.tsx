@@ -1,110 +1,42 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-const photos = [
-  {
-    src: "/slide-1.png",
-    alt: "Kafel — rząd domków",
-  },
-  {
-    src: "/slide-2.png",
-    alt: "Kafel — domki na linii",
-  },
-  {
-    src: "/slide-3.png",
-    alt: "Kafel — sylwetka dachów",
-  },
-  {
-    src: "/slide-4.png",
-    alt: "Kafel — domki z oknami",
-  },
-  {
-    src: "/slide-5.png",
-    alt: "Kafel — forma z kreskowaniem",
-  },
-  {
-    src: "/slide-6.png",
-    alt: "Kafel — falujące linie",
-  },
-  {
-    src: "/slide-7.png",
-    alt: "Kafel — wzór z kropkami",
-  },
-  {
-    src: "/slide-8.png",
-    alt: "Kafel — manufaktura",
-  },
-  {
-    src: "/slide-9.png",
-    alt: "Kafel — pejzaż geometryczny",
-  },
-  {
-    src: "/slide-10.png",
-    alt: "Kafel — formy na indygo",
-  },
-  {
-    src: "/slide-14.png",
-    alt: "Kafel — pasy animowane",
-  },
-  {
-    src: "/slide-12.png",
-    alt: "Kafel — pasy i szczyty",
-  },
-  {
-    src: "/slide-11.png",
-    alt: "Kafel — żebrowanie",
-  },
-  {
-    src: "/slide-13.png",
-    alt: "Kafel — siatka z punktami",
-  },
-  {
-    src: "/slide-15.png",
-    alt: "Kafel — perspektywa geometryczna",
-  },
-  {
-    src: "/slide-16.png",
-    alt: "Kafel — fasady z oknami",
-  },
-  {
-    src: "/slide-17.png",
-    alt: "Kafel — linie pionowe",
-  },
-  {
-    src: "/slide-18.png",
-    alt: "Kafel — okno w fasadzie",
-  },
-  {
-    src: "/slide-19.png",
-    alt: "Kafel — dach i żaluzje",
-  },
-  {
-    src: "/slide-20.png",
-    alt: "Kafel — obrys domu",
-  },
-  {
-    src: "/slide-21.png",
-    alt: "Kafel — dom w paskach",
-  },
-  {
-    src: "/slide-22.png",
-    alt: "Kafel — bloki z oknami",
-  },
-  {
-    src: "/slide-23.png",
-    alt: "Kafel — dom w kreskach",
-  },
-  {
-    src: "/slide-24.png",
-    alt: "Kafel — sylwetka na dwukolorze",
-  },
+const photoSources = [
+  "/slide-1.png",
+  "/slide-2.png",
+  "/slide-3.png",
+  "/slide-4.png",
+  "/slide-5.png",
+  "/slide-6.png",
+  "/slide-7.png",
+  "/slide-8.png",
+  "/slide-9.png",
+  "/slide-10.png",
+  "/slide-14.png",
+  "/slide-12.png",
+  "/slide-11.png",
+  "/slide-13.png",
+  "/slide-15.png",
+  "/slide-16.png",
+  "/slide-17.png",
+  "/slide-18.png",
+  "/slide-19.png",
+  "/slide-20.png",
+  "/slide-21.png",
+  "/slide-22.png",
+  "/slide-23.png",
+  "/slide-24.png",
 ];
 
+type PhotoCarouselProps = {
+  photoAlts: string[];
+  prevLabel: string;
+  nextLabel: string;
+};
+
 const GAP = 24;
-const N = photos.length;
-const LOOP = [...photos, ...photos, ...photos];
 
 function useSlideSize() {
   const [size, setSize] = useState(260);
@@ -124,7 +56,22 @@ function useSlideSize() {
   return size;
 }
 
-export function PhotoCarousel() {
+export function PhotoCarousel({
+  photoAlts,
+  prevLabel,
+  nextLabel,
+}: PhotoCarouselProps) {
+  const photos = useMemo(
+    () =>
+      photoSources.map((src, index) => ({
+        src,
+        alt: photoAlts[index] ?? "",
+      })),
+    [photoAlts]
+  );
+  const N = photos.length;
+  const LOOP = useMemo(() => [...photos, ...photos, ...photos], [photos]);
+
   const slide = useSlideSize();
   const [index, setIndex] = useState(N);
   const [animate, setAnimate] = useState(true);
@@ -221,7 +168,7 @@ export function PhotoCarousel() {
 
       <button
         type="button"
-        aria-label="Poprzednie zdjęcie"
+        aria-label={prevLabel}
         onClick={() => goTo(index - 1)}
         className="absolute left-1 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-dark shadow-sm backdrop-blur-sm transition-colors hover:bg-white md:left-2"
       >
@@ -229,7 +176,7 @@ export function PhotoCarousel() {
       </button>
       <button
         type="button"
-        aria-label="Następne zdjęcie"
+        aria-label={nextLabel}
         onClick={() => goTo(index + 1)}
         className="absolute right-1 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-dark shadow-sm backdrop-blur-sm transition-colors hover:bg-white md:right-2"
       >

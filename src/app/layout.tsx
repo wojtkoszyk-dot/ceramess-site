@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Mulish, Unbounded } from "next/font/google";
+import { getLocale } from "@/i18n/get-locale";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -19,13 +20,15 @@ export const metadata: Metadata = {
   description: "Dwie artystki. Ręcznie malowane płytki i dekoracje. Zero masówki.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="pl" className={`${unbounded.variable} ${mulish.variable}`}>
+    <html lang={locale} className={`${unbounded.variable} ${mulish.variable}`}>
       <body className="font-body antialiased">{children}</body>
     </html>
   );

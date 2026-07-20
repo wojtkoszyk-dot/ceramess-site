@@ -1,11 +1,15 @@
 import Image from "next/image";
 
-export function HeroExperience() {
+type HeroExperienceProps = {
+  imageAlt: string;
+};
+
+export function HeroExperience({ imageAlt }: HeroExperienceProps) {
   return (
     <div className="absolute inset-0 overflow-hidden">
       <Image
         src="/hero-tiles.png"
-        alt="Ręcznie malowane płytki ceramiczne w układzie mozaiki"
+        alt={imageAlt}
         width={768}
         height={1024}
         priority

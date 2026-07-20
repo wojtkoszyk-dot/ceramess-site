@@ -1,26 +1,13 @@
 "use client";
 
 import { Fragment, useEffect, useRef, useState } from "react";
+import type { Dictionary } from "@/i18n/types";
 
-const steps = [
-  {
-    num: "01",
-    keyword: "Szkic",
-    desc: "Design na podstawie Naszej wyjściowej geometrii",
-  },
-  {
-    num: "02",
-    keyword: "Forma",
-    desc: "Glina. Kształt. Wypał. Szkliwo. Wszystko robione ręcznie.",
-  },
-  {
-    num: "03",
-    keyword: "Pattern",
-    desc: "Wzór przenosimy na kafle ręcznie. Dzięki temu każdy egzemplarz jest unikalny i ma własny charakter.",
-  },
-];
+type ProcessStepsProps = {
+  steps: Dictionary["process"]["steps"];
+};
 
-export function ProcessSteps() {
+export function ProcessSteps({ steps }: ProcessStepsProps) {
   const ref = useRef<HTMLOListElement>(null);
   const [active, setActive] = useState(false);
 
@@ -49,7 +36,6 @@ export function ProcessSteps() {
         active ? "is-active" : ""
       }`}
     >
-      {/* Desktop horizontal line */}
       <div
         className="pointer-events-none absolute left-[16.666%] right-[16.666%] top-[0.4375rem] hidden h-px sm:block"
         aria-hidden
@@ -71,7 +57,6 @@ export function ProcessSteps() {
               </span>
             </div>
 
-            {/* Mobile — text to the right of the dot */}
             <div className="absolute left-[calc(100%+1rem)] top-1/2 w-[min(20rem,calc(100vw-5rem))] -translate-y-1/2 text-left sm:hidden">
               <span className="font-display block text-3xl font-bold leading-none text-accent">
                 {step.num}
@@ -86,7 +71,6 @@ export function ProcessSteps() {
               </div>
             </div>
 
-            {/* Desktop — text below the dot */}
             <div className="mt-5 hidden text-center sm:block">
               <span className="font-display block text-3xl font-bold leading-none text-accent md:text-[2.25rem]">
                 {step.num}
@@ -100,7 +84,6 @@ export function ProcessSteps() {
             </div>
           </li>
 
-          {/* Mobile vertical connector only */}
           {i < steps.length - 1 && (
             <li
               className="process-path__connector relative ml-[0.4375rem] h-[10rem] w-px shrink-0 sm:hidden"
