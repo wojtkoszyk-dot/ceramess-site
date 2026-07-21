@@ -17,10 +17,10 @@ export function Header({ locale, nav }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
-    { href: "#o-nas", label: nav.about },
     { href: "#tworzymy", label: nav.vibe },
-    { href: "#galeria", label: nav.manufactory },
     { href: "#proces", label: nav.process },
+    { href: "#galeria", label: nav.manufactory },
+    { href: "#o-nas", label: nav.about },
   ];
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function Header({ locale, nav }: HeaderProps) {
         scrolled ? "shadow-[0_8px_32px_-12px_rgba(30,30,30,0.08)]" : ""
       }`}
     >
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5 md:h-16 md:px-10">
+      <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-5 md:h-14 md:px-10">
         <Link href="/#hero" className="shrink-0">
           <Image
             src="/logo-v4.png"
@@ -70,18 +70,18 @@ export function Header({ locale, nav }: HeaderProps) {
             type="button"
             aria-label={open ? nav.closeMenu : nav.openMenu}
             aria-expanded={open}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-stone/15 transition-colors"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-stone/15 transition-colors"
             onClick={() => setOpen(!open)}
           >
-            <span className="relative h-3 w-4">
+            <span className="relative h-2.5 w-3.5">
               <span
-                className={`absolute left-0 h-px w-full bg-dark transition-all ${open ? "top-1.5 rotate-45" : "top-0"}`}
+                className={`absolute left-0 h-px w-full bg-dark transition-all ${open ? "top-1 rotate-45" : "top-0"}`}
               />
               <span
-                className={`absolute left-0 top-1.5 h-px w-full bg-dark transition-all ${open ? "opacity-0" : ""}`}
+                className={`absolute left-0 top-1 h-px w-full bg-dark transition-all ${open ? "opacity-0" : ""}`}
               />
               <span
-                className={`absolute left-0 h-px w-full bg-dark transition-all ${open ? "top-1.5 -rotate-45" : "top-3"}`}
+                className={`absolute left-0 h-px w-full bg-dark transition-all ${open ? "top-1 -rotate-45" : "top-2.5"}`}
               />
             </span>
           </button>

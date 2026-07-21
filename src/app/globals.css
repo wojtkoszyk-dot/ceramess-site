@@ -37,12 +37,12 @@ html {
     opacity: 1;
   }
 
-  .hero-kenburns,
-  .hero-shimmer {
+  .hero-drift,
+  .hero-sheen {
     animation: none;
   }
 
-  .hero-shimmer {
+  .hero-sheen {
     opacity: 0;
   }
 }
@@ -183,52 +183,50 @@ h3 {
   opacity: 0;
 }
 
-/* Hero — wolny Ken Burns + miękki shimmer światła */
-.hero-kenburns {
+/* Hero — bardzo wolny, minimalny drift tła */
+.hero-drift {
   will-change: transform;
-  animation: hero-kenburns 36s ease-in-out infinite alternate;
-  transform-origin: 42% 38%;
+  animation: hero-drift 32s ease-in-out infinite alternate;
+  transform-origin: 40% 40%;
 }
 
-@keyframes hero-kenburns {
+@keyframes hero-drift {
   from {
-    transform: scale(1) translate(0, 0);
+    transform: scale(1.01) translate(0, 0);
   }
   to {
-    transform: scale(1.06) translate(-1.2%, 1%);
+    transform: scale(1.03) translate(-0.8%, 0.5%);
   }
 }
 
-.hero-shimmer {
+/* Delikatny refleks światła przesuwający się po tle */
+.hero-sheen {
   pointer-events: none;
   background: linear-gradient(
-    115deg,
-    transparent 32%,
-    rgb(255 255 255 / 0.07) 46%,
-    rgb(255 255 255 / 0.18) 50%,
-    rgb(255 255 255 / 0.07) 54%,
-    transparent 68%
+    105deg,
+    transparent 42%,
+    rgb(255 255 255 / 0.12) 49%,
+    rgb(255 255 255 / 0.22) 50.5%,
+    rgb(255 255 255 / 0.12) 52%,
+    transparent 59%
   );
-  background-size: 220% 220%;
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
   mix-blend-mode: soft-light;
+  opacity: 0.55;
   will-change: background-position;
-  animation: hero-shimmer 14s ease-in-out infinite;
+  animation: hero-sheen 11s ease-in-out infinite;
+  /* Maska: refleks głównie w górnej połowie, nie w strefie tekstu */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 72%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 72%);
 }
 
-@keyframes hero-shimmer {
-  0%,
-  12% {
-    background-position: 120% 40%;
-    opacity: 0.35;
+@keyframes hero-sheen {
+  0% {
+    background-position: 120% 0;
   }
-  50% {
-    background-position: 40% 55%;
-    opacity: 0.85;
-  }
-  88%,
   100% {
-    background-position: -20% 70%;
-    opacity: 0.35;
+    background-position: -40% 0;
   }
 }
 

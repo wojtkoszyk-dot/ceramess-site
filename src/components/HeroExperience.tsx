@@ -7,9 +7,9 @@ type HeroExperienceProps = {
 export function HeroExperience({ imageAlt }: HeroExperienceProps) {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="hero-kenburns absolute inset-0">
+      <div className="hero-drift absolute inset-0">
         <Image
-          src="/hero-tiles.png"
+          src="/hero-tiles-restore.jpg"
           alt={imageAlt}
           width={768}
           height={1024}
@@ -18,7 +18,7 @@ export function HeroExperience({ imageAlt }: HeroExperienceProps) {
           sizes="100vw"
         />
       </div>
-      <div className="hero-shimmer absolute inset-0" aria-hidden />
+      <div className="hero-sheen absolute inset-0" aria-hidden />
       <div
         className="absolute inset-0 bg-gradient-to-t from-white from-0% via-white/85 via-35% to-white/50"
         aria-hidden

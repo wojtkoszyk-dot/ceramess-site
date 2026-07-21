@@ -40,7 +40,7 @@ export default async function Home() {
                 <br />
                 {t.hero.titleLine2}
                 <br />
-                <span className="text-stone/80">{t.hero.titleLine3}</span>
+                <span className="text-accent">{t.hero.titleLine3}</span>
               </h1>
               <p className="animate-fade-up-delay-2 mt-4 max-w-sm text-sm text-stone">
                 {t.hero.subtitleLine1}
@@ -63,27 +63,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="o-nas" className="relative bg-[#F3F1E9] py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <p className="section-label font-mulish !font-extralight">{t.about.label}</p>
-            <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
-              {t.about.title}
-            </h2>
-            <p className="mt-4 max-w-md text-sm text-stone">
-              {t.about.greeting}
-              <br />
-              {t.about.body}
-            </p>
-            <a
-              href="#tworzymy"
-              className="font-display mt-5 inline-flex items-center gap-1.5 text-xs text-accent transition-colors hover:text-[#3f5f9e]"
-            >
-              {t.about.link}
-            </a>
-          </div>
-        </section>
-
-        <section id="tworzymy" className="relative bg-white pt-16 md:pt-24">
+        <section id="tworzymy" className="relative bg-[#F3F1E9] pt-16 md:pt-24">
           <div className="mx-auto max-w-7xl px-5 pb-16 md:px-10 md:pb-24">
             <div>
               <p className="section-label font-mulish !font-extralight">{t.offer.label}</p>
@@ -118,6 +98,24 @@ export default async function Home() {
           </div>
         </section>
 
+        <section id="proces" className="bg-white py-16 md:py-24">
+          <div className="mx-auto flex max-w-7xl flex-col px-5 md:px-10">
+            <p className="section-label font-mulish !font-extralight">{t.process.label}</p>
+            <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+              {t.process.title}
+            </h2>
+            <p className="font-mulish mt-3 max-w-2xl text-sm font-light text-stone">
+              {t.process.body}
+            </p>
+
+            <ProcessSteps steps={t.process.steps} />
+
+            <p className="font-mulish mt-auto max-w-2xl pt-16 text-xs font-light leading-relaxed text-stone md:pt-24">
+              {t.process.footnote}
+            </p>
+          </div>
+        </section>
+
         <section id="galeria" className="relative bg-white py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <div>
@@ -140,21 +138,23 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="proces" className="bg-white py-16 md:py-24">
-          <div className="mx-auto flex max-w-7xl flex-col px-5 md:px-10">
-            <p className="section-label font-mulish !font-extralight">{t.process.label}</p>
+        <section id="o-nas" className="relative bg-white py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-5 md:px-10">
+            <p className="section-label font-mulish !font-extralight">{t.about.label}</p>
             <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
-              {t.process.title}
+              {t.about.title}
             </h2>
-            <p className="font-mulish mt-3 max-w-2xl text-sm font-light text-stone">
-              {t.process.body}
+            <p className="mt-4 max-w-md text-sm text-stone">
+              {t.about.greeting}
+              <br />
+              {t.about.body}
             </p>
-
-            <ProcessSteps steps={t.process.steps} />
-
-            <p className="font-mulish mt-auto max-w-2xl pt-16 text-xs font-light leading-relaxed text-stone md:pt-24">
-              {t.process.footnote}
-            </p>
+            <a
+              href="#tworzymy"
+              className="font-display mt-5 inline-flex items-center gap-1.5 text-xs text-accent transition-colors hover:text-[#3f5f9e]"
+            >
+              {t.about.link}
+            </a>
           </div>
         </section>
 
