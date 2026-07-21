@@ -38,12 +38,12 @@ html {
   }
 
   .hero-drift,
-  .hero-sheen {
+  .hero-sheen::before {
     animation: none;
   }
 
   .hero-sheen {
-    opacity: 0;
+    display: none;
   }
 }
 
@@ -183,50 +183,63 @@ h3 {
   opacity: 0;
 }
 
-/* Hero — bardzo wolny, minimalny drift tła */
+/* Hero — wolny drift tła */
 .hero-drift {
   will-change: transform;
-  animation: hero-drift 32s ease-in-out infinite alternate;
+  animation: hero-drift 22s ease-in-out infinite alternate;
   transform-origin: 40% 40%;
 }
 
 @keyframes hero-drift {
   from {
-    transform: scale(1.01) translate(0, 0);
+    transform: scale(1.02) translate(0.6%, -0.3%);
   }
   to {
-    transform: scale(1.03) translate(-0.8%, 0.5%);
+    transform: scale(1.07) translate(-1.4%, 1%);
   }
 }
 
-/* Delikatny refleks światła przesuwający się po tle */
+/* Refleks światła — pas przesuwany transformem (lepiej widoczny niż background-position) */
 .hero-sheen {
   pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-sheen::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  left: -40%;
+  width: 45%;
   background: linear-gradient(
-    105deg,
-    transparent 42%,
-    rgb(255 255 255 / 0.12) 49%,
-    rgb(255 255 255 / 0.22) 50.5%,
-    rgb(255 255 255 / 0.12) 52%,
-    transparent 59%
+    100deg,
+    transparent 0%,
+    rgb(255 255 255 / 0.08) 35%,
+    rgb(255 255 255 / 0.45) 50%,
+    rgb(255 255 255 / 0.08) 65%,
+    transparent 100%
   );
-  background-size: 220% 100%;
-  background-repeat: no-repeat;
-  mix-blend-mode: soft-light;
-  opacity: 0.55;
-  will-change: background-position;
-  animation: hero-sheen 11s ease-in-out infinite;
-  /* Maska: refleks głównie w górnej połowie, nie w strefie tekstu */
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 72%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 72%);
+  filter: blur(8px);
+  will-change: transform;
+  animation: hero-sheen 7s ease-in-out infinite;
 }
 
 @keyframes hero-sheen {
   0% {
-    background-position: 120% 0;
+    transform: translateX(0);
+    opacity: 0.35;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.9;
   }
   100% {
-    background-position: -40% 0;
+    transform: translateX(280%);
+    opacity: 0.35;
   }
 }
 

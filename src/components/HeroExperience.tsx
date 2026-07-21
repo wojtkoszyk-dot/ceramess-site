@@ -18,11 +18,12 @@ export function HeroExperience({ imageAlt }: HeroExperienceProps) {
           sizes="100vw"
         />
       </div>
-      <div className="hero-sheen absolute inset-0" aria-hidden />
       <div
         className="absolute inset-0 bg-gradient-to-t from-white from-0% via-white/85 via-35% to-white/50"
         aria-hidden
       />
+      {/* Nad gradientem, tylko górna część — refleks ma być widoczny */}
+      <div className="hero-sheen absolute inset-x-0 top-0 h-[58%]" aria-hidden />
     </div>
   );
 }
