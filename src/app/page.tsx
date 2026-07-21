@@ -140,9 +140,8 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="proces" className="relative bg-white py-16 md:py-24">
-          <div className="absolute inset-0 bg-tile-grid opacity-25" aria-hidden />
-          <div className="relative mx-auto flex max-w-7xl flex-col px-5 md:px-10">
+        <section id="proces" className="bg-white py-16 md:py-24">
+          <div className="mx-auto flex max-w-7xl flex-col px-5 md:px-10">
             <p className="section-label font-mulish !font-extralight">{t.process.label}</p>
             <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
               {t.process.title}

@@ -64,7 +64,7 @@ export const pl: Dictionary = {
       {
         num: "01",
         keyword: "Szkic",
-        desc: "Design na podstawie Naszej wyjściowej geometrii",
+        desc: "Każdy projekt zaczynamy od autorskiej geometrii, która wyznacza charakter naszej idei",
       },
       {
         num: "02",
@@ -73,8 +73,8 @@ export const pl: Dictionary = {
       },
       {
         num: "03",
-        keyword: "Pattern",
-        desc: "Wzór przenosimy na kafle ręcznie. Dzięki temu każdy egzemplarz jest unikalny i ma własny charakter.",
+        keyword: "Wzór",
+        desc: "Pattern przenosimy na kafle ręcznie. Dzięki temu każdy egzemplarz jest unikalny i ma własny charakter.",
       },
     ],
     footnote:

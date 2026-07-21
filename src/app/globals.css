@@ -36,6 +36,15 @@ html {
     animation: none;
     opacity: 1;
   }
+
+  .hero-kenburns,
+  .hero-shimmer {
+    animation: none;
+  }
+
+  .hero-shimmer {
+    opacity: 0;
+  }
 }
 
 body {
@@ -172,6 +181,55 @@ h3 {
 .animate-fade-up-delay-2 {
   animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
   opacity: 0;
+}
+
+/* Hero — wolny Ken Burns + miękki shimmer światła */
+.hero-kenburns {
+  will-change: transform;
+  animation: hero-kenburns 36s ease-in-out infinite alternate;
+  transform-origin: 42% 38%;
+}
+
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+  to {
+    transform: scale(1.06) translate(-1.2%, 1%);
+  }
+}
+
+.hero-shimmer {
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 32%,
+    rgb(255 255 255 / 0.07) 46%,
+    rgb(255 255 255 / 0.18) 50%,
+    rgb(255 255 255 / 0.07) 54%,
+    transparent 68%
+  );
+  background-size: 220% 220%;
+  mix-blend-mode: soft-light;
+  will-change: background-position;
+  animation: hero-shimmer 14s ease-in-out infinite;
+}
+
+@keyframes hero-shimmer {
+  0%,
+  12% {
+    background-position: 120% 40%;
+    opacity: 0.35;
+  }
+  50% {
+    background-position: 40% 55%;
+    opacity: 0.85;
+  }
+  88%,
+  100% {
+    background-position: -20% 70%;
+    opacity: 0.35;
+  }
 }
 
 /* Ścieżka procesu — linia + kropki */
