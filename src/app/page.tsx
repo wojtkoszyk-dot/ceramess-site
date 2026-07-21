@@ -30,7 +30,7 @@ export default async function Home() {
         <section id="hero" className="relative min-h-[100svh]">
           <HeroExperience imageAlt={t.hero.imageAlt} />
 
-          <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-10 pt-20 md:px-10 md:pb-14">
+          <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-10 pt-20 md:px-10 md:pb-14">
             <div className="max-w-2xl">
               <p className="section-label font-mulish animate-fade-up mb-4 !font-extralight">
                 {t.hero.label}
@@ -63,7 +63,27 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="tworzymy" className="relative bg-[#F3F1E9] pt-16 md:pt-24">
+        <section id="o-nas" className="relative bg-[#F3F1E9] py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-5 md:px-10">
+            <p className="section-label font-mulish !font-extralight">{t.about.label}</p>
+            <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+              {t.about.title}
+            </h2>
+            <p className="mt-4 max-w-md text-sm text-stone">
+              {t.about.greeting}
+              <br />
+              {t.about.body}
+            </p>
+            <a
+              href="#tworzymy"
+              className="font-display mt-5 inline-flex items-center gap-1.5 text-xs text-accent transition-colors hover:text-[#3f5f9e]"
+            >
+              {t.about.link}
+            </a>
+          </div>
+        </section>
+
+        <section id="tworzymy" className="relative bg-white pt-16 md:pt-24">
           <div className="mx-auto max-w-7xl px-5 pb-16 md:px-10 md:pb-24">
             <div>
               <p className="section-label font-mulish !font-extralight">{t.offer.label}</p>
@@ -135,26 +155,6 @@ export default async function Home() {
                 nextLabel={t.gallery.next}
               />
             </div>
-          </div>
-        </section>
-
-        <section id="o-nas" className="relative bg-white py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <p className="section-label font-mulish !font-extralight">{t.about.label}</p>
-            <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
-              {t.about.title}
-            </h2>
-            <p className="mt-4 max-w-md text-sm text-stone">
-              {t.about.greeting}
-              <br />
-              {t.about.body}
-            </p>
-            <a
-              href="#tworzymy"
-              className="font-display mt-5 inline-flex items-center gap-1.5 text-xs text-accent transition-colors hover:text-[#3f5f9e]"
-            >
-              {t.about.link}
-            </a>
           </div>
         </section>
 

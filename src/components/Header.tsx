@@ -17,10 +17,10 @@ export function Header({ locale, nav }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
+    { href: "#o-nas", label: nav.about },
     { href: "#tworzymy", label: nav.vibe },
     { href: "#proces", label: nav.process },
     { href: "#galeria", label: nav.manufactory },
-    { href: "#o-nas", label: nav.about },
   ];
 
   useEffect(() => {
