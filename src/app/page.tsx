@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { HeroExperience } from "@/components/HeroExperience";
+import { OfferMore } from "@/components/OfferMore";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -83,37 +84,47 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="tworzymy" className="relative bg-white pt-16 md:pt-24">
-          <div className="mx-auto max-w-7xl px-5 pb-16 md:px-10 md:pb-24">
-            <div>
-              <p className="section-label font-mulish !font-extralight">{t.offer.label}</p>
-              <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
-                {t.offer.title}
-              </h2>
-              <p className="mt-4 max-w-2xl text-sm text-stone">{t.offer.body}</p>
+        <section id="tworzymy" className="relative bg-white pt-16 md:overflow-x-clip md:pt-24">
+          <div className="pb-16 md:pb-24">
+            <div className="grid items-start gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
+              <div className="px-5 md:pl-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] md:pr-0">
+                <p className="section-label font-mulish !font-extralight">{t.offer.label}</p>
+                <h2 className="font-display mt-4 text-3xl font-bold text-dark md:text-5xl">
+                  {t.offer.title}
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm text-stone">{t.offer.body}</p>
 
-              <p className="font-mulish mt-10 text-sm font-light text-stone">
-                {t.offer.geometryLabel}
-              </p>
-              <div className="mt-6 flex justify-center gap-0.5" aria-hidden>
-                {[1, 3, 2, 4, 5].map((n) => (
+                <OfferMore
+                  moreLabel={t.offer.more}
+                  lessLabel={t.offer.less}
+                  geometryLabel={t.offer.geometryLabel}
+                  geometryBody={t.offer.geometryBody}
+                />
+              </div>
+
+              <div className="mx-5 grid grid-cols-4 gap-1.5 md:mx-0 md:h-[36rem] md:self-start">
+                {[
+                  "/offer-clay.jpg",
+                  "/offer-stack.jpg",
+                  "/offer-tiles-sun.jpg",
+                  "/offer-tiles-white.jpg",
+                ].map((src, i) => (
                   <div
-                    key={n}
-                    className="relative h-[50px] w-[50px] shrink-0 overflow-hidden"
+                    key={`${src}-${i}`}
+                    className={`relative aspect-[3/8] overflow-hidden rounded-[6px] md:aspect-auto md:h-full ${
+                      i === 3 ? "md:rounded-r-none" : ""
+                    }`}
                   >
                     <Image
-                      src={`/geometry-${n}.png`}
-                      alt=""
+                      src={src}
+                      alt={t.offer.imageAlts[i] ?? ""}
                       fill
-                      sizes="50px"
+                      sizes="(max-width: 768px) 25vw, 12vw"
                       className="object-cover"
                     />
                   </div>
                 ))}
               </div>
-              <p className="font-mulish mt-6 max-w-2xl text-sm font-light text-stone">
-                {t.offer.geometryBody}
-              </p>
             </div>
           </div>
         </section>

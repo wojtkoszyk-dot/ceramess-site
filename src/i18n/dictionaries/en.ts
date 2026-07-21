@@ -37,6 +37,15 @@ export const en: Dictionary = {
     label: "Offer",
     title: "What we do",
     body: "Tiles. From start to finish. From idea to a packed tile made for you. Our tiles are not just a wall in a bathroom or kitchen — they are art that can surround you every day. A premium, individual, one-of-a-kind product that stays flexible. Every project is made individually. Small format, large-scale installation, a single accent or an entire wall. The scale is up to you.",
+    imageAlt: "Ceramess clay and cream surface texture",
+    imageAlts: [
+      "Ceramess clay and cream surface texture",
+      "Stack of terracotta tiles on OSB board",
+      "Terracotta tiles in sunlight",
+      "Light tiles arranged on OSB board",
+    ],
+    more: "more",
+    less: "less",
     geometryLabel: "Our geometry:",
     geometryBody:
       "This is the starting point. The visual language we build patterns from. Detail meets minimalism, and the whole stays simple, timeless, and premium.",
