@@ -72,7 +72,7 @@ export const pl: Dictionary = {
       {
         num: "02",
         keyword: "Forma",
-        desc: "Glina. Kształt. Wypał. Szkliwo. Wszystko robione ręcznie.",
+        desc: "Formujemy glinę, wypalamy ją i szkliwimy w naszej pracowni. Każdy etap powstaje z cierpliwością i dbałością o detal.",
       },
       {
         num: "03",

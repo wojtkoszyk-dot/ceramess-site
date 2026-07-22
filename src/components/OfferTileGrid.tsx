@@ -8,16 +8,40 @@ type OfferTileGridProps = {
 };
 
 const CREAM = "/offer-collage-v3.png";
-const CLAY = "/offer-tile-clay.png";
-const CLAY_EXPANDED = "/offer-tile-clay-expanded.png";
 const COLS = 3;
 const ROWS = 4;
+
+/** Special tiles: collapsed + expanded pair. Index 8 = prawy rząd, drugi od dołu. */
+const SPECIAL: Record<
+  number,
+  { collapsed: string; expanded: string; alt: string }
+> = {
+  9: {
+    collapsed: "/offer-tile-clay.png",
+    expanded: "/offer-tile-clay-expanded.png",
+    alt: "Minimalizm, geometria, prostota",
+  },
+  8: {
+    collapsed: "/offer-tile-osb.png",
+    expanded: "/offer-tile-osb-expanded.png",
+    alt: "Wyjątkowe, niepowtarzalne",
+  },
+  4: {
+    collapsed: "/offer-tile-checker.png",
+    expanded: "/offer-tile-checker-expanded.png",
+    alt: "Wszystko ręcznie",
+  },
+  7: {
+    collapsed: "/offer-tile-stack.png",
+    expanded: "/offer-tile-stack-expanded.png",
+    alt: "Zero masówki",
+  },
+};
 
 function cellPos(i: number) {
   return { col: i % COLS, row: Math.floor(i / COLS) };
 }
 
-/** 2×2 block that contains the cell and fits in the grid */
 function expandBlock(i: number) {
   const { col, row } = cellPos(i);
   const startCol = Math.min(col, COLS - 2);
@@ -30,12 +54,7 @@ function expandBlock(i: number) {
   }
   const originX = col === startCol ? "left" : "right";
   const originY = row === startRow ? "top" : "bottom";
-  return {
-    covered,
-    originX,
-    originY,
-    transformOrigin: `${originY} ${originX}` as const,
-  };
+  return { covered, originX, originY };
 }
 
 export function OfferTileGrid({ imageAlt }: OfferTileGridProps) {
@@ -51,7 +70,7 @@ export function OfferTileGrid({ imageAlt }: OfferTileGridProps) {
       aria-label={imageAlt}
     >
       {Array.from({ length: 12 }, (_, i) => {
-        const isClay = i === 9;
+        const special = SPECIAL[i];
         const isExpanded = expandedIndex === i;
         const isCovered =
           expandedIndex !== null && coveredSet.has(i) && !isExpanded;
@@ -70,7 +89,7 @@ export function OfferTileGrid({ imageAlt }: OfferTileGridProps) {
                 setExpandedIndex((prev) => (prev === i ? null : i))
               }
               aria-expanded={isExpanded}
-              aria-label={isClay ? imageAlt : undefined}
+              aria-label={special?.alt}
               className={`absolute overflow-hidden rounded-[6px] border-0 bg-transparent p-0 outline-none will-change-[width,height] focus-visible:ring-2 focus-visible:ring-accent ${
                 isExpanded ? "z-20" : "z-10 hover:brightness-[0.98]"
               }`}
@@ -83,10 +102,10 @@ export function OfferTileGrid({ imageAlt }: OfferTileGridProps) {
                   "width 0.55s cubic-bezier(0.22, 1, 0.36, 1), height 0.55s cubic-bezier(0.22, 1, 0.36, 1)",
               }}
             >
-              {isClay ? (
+              {special ? (
                 <>
                   <Image
-                    src={CLAY}
+                    src={special.collapsed}
                     alt=""
                     fill
                     sizes="(max-width: 768px) 66vw, 33vw"
@@ -96,8 +115,8 @@ export function OfferTileGrid({ imageAlt }: OfferTileGridProps) {
                     aria-hidden
                   />
                   <Image
-                    src={CLAY_EXPANDED}
-                    alt={imageAlt}
+                    src={special.expanded}
+                    alt={special.alt}
                     fill
                     sizes="(max-width: 768px) 66vw, 33vw"
                     className={`object-contain transition-opacity duration-500 ${
