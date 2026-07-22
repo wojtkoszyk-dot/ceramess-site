@@ -24,7 +24,7 @@ export function OfferMore({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="font-display ml-auto flex items-center gap-1.5 text-xs text-accent transition-colors hover:text-[#3f5f9e]"
+        className="font-display ml-auto flex items-center gap-1.5 text-xs text-accent transition-colors hover:text-[#3f5f9e] md:hidden"
       >
         {open ? lessLabel : moreLabel}
         <span
@@ -36,12 +36,12 @@ export function OfferMore({
       </button>
 
       <div
-        className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:!grid-rows-[1fr] ${
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
-        <div className="overflow-hidden">
-          <p className="font-mulish mt-8 text-sm font-light text-stone">
+        <div className="overflow-hidden md:overflow-visible">
+          <p className="font-mulish mt-8 text-sm font-light text-stone md:mt-10">
             {geometryLabel}
           </p>
           <div className="mt-6 flex justify-center gap-0.5 md:justify-start" aria-hidden>

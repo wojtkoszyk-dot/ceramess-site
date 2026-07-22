@@ -35,7 +35,6 @@ export type Dictionary = {
     title: string;
     body: string;
     imageAlt: string;
-    imageAlts: string[];
     more: string;
     less: string;
     geometryLabel: string;
